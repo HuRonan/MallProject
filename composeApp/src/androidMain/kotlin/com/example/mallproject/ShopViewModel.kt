@@ -4,7 +4,6 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
-import com.example.mallproject.db.createShopDatabase
 import com.example.mallproject.model.CartItem
 import com.example.mallproject.model.Product
 import com.example.mallproject.model.ShopOrder
@@ -46,13 +45,11 @@ data class ShopUiState(
 )
 
 class ShopViewModel(
-    val productRepository: ProductRepository
+    val productRepository: ProductRepository,
+    val cartRepository: CartRepository,
+    val orderRepository: OrderRepository
 ) : ViewModel() {
     private val scope = CoroutineScope(SupervisorJob() + Dispatchers.Main)
-
-    private val database = createShopDatabase()
-    private val cartRepository = CartRepository(database)
-    private val orderRepository = OrderRepository(database)
 
     var uiState by mutableStateOf(ShopUiState())
         private set

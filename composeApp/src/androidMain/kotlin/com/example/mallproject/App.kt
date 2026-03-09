@@ -56,7 +56,6 @@ import androidx.compose.material3.SnackbarHostState
 import coil3.compose.AsyncImage
 import coil3.compose.SubcomposeAsyncImage
 import coil3.compose.SubcomposeAsyncImageContent
-import com.example.mallproject.db.createShopDatabase
 import com.example.mallproject.model.CartItem
 import com.example.mallproject.model.Product
 import com.example.mallproject.model.ShopOrder
@@ -352,7 +351,7 @@ private fun CartScreen(
                                 Text("¥${formatPrice(item.price * item.quantity)}")
                             }
                             Row(horizontalArrangement = Arrangement.SpaceBetween) {
-                                Text("单价：¥${formatPrice(item.price)} x 数量：${item.quantity} = 小计：¥${formatPrice(item.price * item.quantity)}")
+                                Text("¥${formatPrice(item.price)} x ${item.quantity} = ¥${formatPrice(item.price * item.quantity)}")
                             }
                             Row(verticalAlignment = Alignment.CenterVertically) {
                                 SmallOpButton("-") { onDec(item.productId) }
