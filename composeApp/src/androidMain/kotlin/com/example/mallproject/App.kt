@@ -67,6 +67,9 @@ import com.example.mallproject.repository.ProductRepository
 import kotlinx.coroutines.launch
 import org.koin.androidx.compose.koinViewModel
 import kotlin.random.Random
+import java.text.SimpleDateFormat
+import java.util.Date
+import java.util.Locale
 
 
 enum class Tab { Home, Cart, Orders }
@@ -404,7 +407,8 @@ private fun OrderScreen(orders: List<ShopOrder>) {
             Card(Modifier.fillMaxWidth()) {
                 Column(Modifier.padding(12.dp), verticalArrangement = Arrangement.spacedBy(8.dp)) {
                     Text("订单号：${order.orderId}", fontWeight = FontWeight.Bold)
-                    Text("下单时间：")
+                    val sdf = SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault())
+                    Text("下单时间：${sdf.format(Date(order.createdAt))}")
                     Text("状态：${order.status}")
                     Text("总价：¥${formatPrice(order.totalPrice)}")
                     Text("商品数：${order.items.sumOf { it.quantity }}")
