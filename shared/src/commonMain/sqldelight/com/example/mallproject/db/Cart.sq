@@ -1,0 +1,36 @@
+CREATE TABLE cart_item (
+    product_id TEXT NOT NULL PRIMARY KEY,
+    title TEXT NOT NULL,
+    price REAL NOT NULL,
+    image_url TEXT NOT NULL,
+    quantity INTEGER NOT NULL,
+    updated_at INTEGER NOT NULL
+);
+
+selectAll:
+SELECT *
+FROM cart_item
+ORDER BY updated_at DESC;
+
+selectById:
+SELECT *
+FROM cart_item
+WHERE product_id = ?;
+
+insertOrReplace:
+INSERT OR REPLACE INTO cart_item(
+    product_id,
+    title,
+    price,
+    image_url,
+    quantity,
+    updated_at
+)
+VALUES (?, ?, ?, ?, ?, ?);
+
+deleteById:
+DELETE FROM cart_item
+WHERE product_id = ?;
+
+deleteAll:
+DELETE FROM cart_item;
