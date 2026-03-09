@@ -351,6 +351,9 @@ private fun CartScreen(
                                 Text(item.title, fontWeight = FontWeight.Medium)
                                 Text("¥${formatPrice(item.price * item.quantity)}")
                             }
+                            Row(horizontalArrangement = Arrangement.SpaceBetween) {
+                                Text("单价：¥${formatPrice(item.price)} x 数量：${item.quantity} = 小计：¥${formatPrice(item.price * item.quantity)}")
+                            }
                             Row(verticalAlignment = Alignment.CenterVertically) {
                                 SmallOpButton("-") { onDec(item.productId) }
                                 Text("  ${item.quantity}  ")
