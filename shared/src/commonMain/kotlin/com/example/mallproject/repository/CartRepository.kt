@@ -1,6 +1,5 @@
 package com.example.mallproject.repository
 
-import com.example.mallproject.data.CartStorage
 import com.example.mallproject.db.ShopDatabase
 import com.example.mallproject.model.CartItem
 import com.example.mallproject.model.Product

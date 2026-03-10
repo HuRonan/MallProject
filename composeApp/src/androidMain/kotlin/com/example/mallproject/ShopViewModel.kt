@@ -7,7 +7,6 @@ import androidx.lifecycle.ViewModel
 import com.example.mallproject.model.CartItem
 import com.example.mallproject.model.Product
 import com.example.mallproject.model.ShopOrder
-import com.example.mallproject.network.ProductApi
 import com.example.mallproject.repository.CartRepository
 import com.example.mallproject.repository.OrderRepository
 import com.example.mallproject.repository.ProductRepository
